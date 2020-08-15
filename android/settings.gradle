@@ -1,1 +1,3 @@
-rootProject.name = 'super_shared_preferences'
+package android
+
+rootProject.name = 'shared_preferences'

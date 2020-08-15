@@ -1,4 +1,6 @@
-group 'io.flutter.plugin.shared_preferences'
+package android
+
+group 'io.flutter.plugins.shared_preferences'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -25,7 +27,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

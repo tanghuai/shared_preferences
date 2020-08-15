@@ -1,2 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.flutter.plugin.shared_preferences" />
+    package="io.flutter.plugins.shared_preferences" />

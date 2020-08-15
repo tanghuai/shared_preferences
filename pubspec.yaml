@@ -1,6 +1,6 @@
 name: shared_preferences
-description: Shared library that can read and write data on Android SharedPres files with SharedName.
-version: 0.0.2
+description: SharedPreference Library that can read and write data on Android SharedPreferences files. We can use xml file names to choose share file on Android.
+version: 0.0.3
 homepage: https://github.com/tanghuai/shared_preferences.git
 
 environment:
@@ -27,7 +27,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: io.flutter.plugin.shared_preferences
+        package: io.flutter.plugins.shared_preferences
         pluginClass: SharedPreferencesPlugin
       ios:
         pluginClass: SharedPreferencesPlugin

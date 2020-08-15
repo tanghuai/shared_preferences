@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 class SharedPreferences {
   static const MethodChannel _channel =
-      const MethodChannel("plugin.flutter.io/shared_preferences");
+      const MethodChannel("plugins.flutter.io/shared_preferences");
   static Map<String, SharedPreferences> _singletons = Map();
 
   static SharedPreferences instance({String sharedName = "parameter"}) {

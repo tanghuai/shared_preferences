@@ -10,7 +10,6 @@ class SharedPreferencesMethodCallHandler(var context: Context) : MethodChannel.M
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
 
-
         val method: String = call.method
         val key: String? = call.argument("key")
         val sharedName: String? = call.argument("sharedName")

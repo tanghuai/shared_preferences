@@ -37,7 +37,7 @@ public class SharedPreferencesPlugin : FlutterPlugin {
     // depending on the user's project. onAttachedToEngine or registerWith must both be defined
     // in the same class.
     companion object {
-        private const val CHANNEL_NAME = "plugin.flutter.io/shared_preferences"
+        private const val CHANNEL_NAME = "plugins.flutter.io/shared_preferences"
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
