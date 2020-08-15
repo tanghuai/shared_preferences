@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+/// 缓存类，对应源生缓存
+/// android--------直接访问android源生sharePres缓存
+/// ios---------待完善
 class SharedPreferences {
   static const MethodChannel _channel =
       const MethodChannel("plugins.flutter.io/shared_preferences");
@@ -10,16 +13,16 @@ class SharedPreferences {
   static SharedPreferences instance({String sharedName = "parameter"}) {
     if (_singletons.containsKey(sharedName)) {
     } else {
-      _singletons[sharedName] = SharedPreferences.initWithName(sharedName);
+      _singletons[sharedName] = SharedPreferences._initWithName(sharedName);
     }
     return _singletons[sharedName];
   }
 
-  String sharedName = SharedNames.defaultName;
+  //对应android源生 SharePreferences 文件名
+  final String _sharedName;
 
-  SharedPreferences.initWithName(String sharedName) {
-    this.sharedName = sharedName;
-    _singletons[sharedName] = this;
+  SharedPreferences._initWithName(this._sharedName) {
+    _singletons[_sharedName] = this;
   }
 
   Map<String, dynamic> _buildArguments<T>(String key,
@@ -35,23 +38,43 @@ class SharedPreferences {
     };
   }
 
+  /// 获取key对应value值
+  /// @key 缓存key值
+  /// @defaultValue 默认值
+  /// @return 返回值<T>
   Future<T> getValue<T>(String key, {T defValue}) async {
     final T value = await _channel.invokeMethod(
         'getValue',
         _buildArguments(
           key,
           defValue: defValue,
-          sharedName: sharedName,
+          sharedName: _sharedName,
         ));
     return value;
   }
 
+  /// 添加key-value对
+  /// @key 缓存key值
+  /// @value<T> 缓存值
   Future<void> setValue<T>(String key, T value) async {
     await _channel.invokeMethod("setValue", <String, dynamic>{
       "key": key,
       "value": value,
-      "sharedName": sharedName
+      "sharedName": _sharedName
     });
+  }
+
+  /// 根据key移除对应value
+  /// @key 缓存key值
+  Future<void> remove(String key) async {
+    await _channel.invokeMethod("remove", <String, dynamic>{"key": key});
+  }
+
+  /// 清空所有缓存键值对
+  Future<void> clear() async {
+    await _channel.invokeMethod(
+      "clear",
+    );
   }
 }
 

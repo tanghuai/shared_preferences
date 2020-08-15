@@ -1,6 +1,6 @@
 name: shared_preferences
 description: SharedPreference Library that can read and write data on Android SharedPreferences files. We can use xml file names to choose share file on Android.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/tanghuai/shared_preferences.git
 
 environment:

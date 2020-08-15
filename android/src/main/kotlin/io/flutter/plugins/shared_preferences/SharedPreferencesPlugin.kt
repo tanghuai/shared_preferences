@@ -1,4 +1,4 @@
-package io.flutter.plugin.shared_preferences
+package io.flutter.plugins.shared_preferences
 
 import android.content.SharedPreferences
 import androidx.annotation.NonNull;
