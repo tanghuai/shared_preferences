@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:super_shared_preferences/super_shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,8 +23,8 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-
-    SharedPreferences.instance(sharedName: "newName").setValue("key", "testKey");
+    SharedPreferences.instance(sharedName: "newName")
+        .setValue("key", "testKey");
     String val = await SharedPreferences.instance().getValue("key");
 
     if (!mounted) return;
