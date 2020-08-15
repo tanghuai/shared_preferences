@@ -6,7 +6,7 @@ a library that can read can write Android SharedPreference file use a fileName
 
 #### 使用方法参考Android源生实现
 
-(```)
+```
     SharedPreferences.instance().setValue("string", "string-value");
     SharedPreferences.instance(sharedName: "shareName")
         .setValue("string", "string-value");
@@ -20,4 +20,4 @@ a library that can read can write Android SharedPreference file use a fileName
     Double val2 = await SharedPreferences.instance().getValue("double");
     bool val3 = await SharedPreferences.instance().getValue("bool");
     int val4 = await SharedPreferences.instance().getValue("int");
-(```)
+```
