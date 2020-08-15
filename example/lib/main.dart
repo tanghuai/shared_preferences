@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -18,19 +20,29 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    test();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    SharedPreferences.instance(sharedName: "newName")
-        .setValue("key", "testKey");
-    String val = await SharedPreferences.instance().getValue("key");
+  Future<void> test() async {
+    SharedPreferences.instance().setValue("string", "string-value");
+    SharedPreferences.instance(sharedName: "shareName")
+        .setValue("string", "string-value");
+
+    SharedPreferences.instance().setValue("string", "string-value");
+    SharedPreferences.instance().setValue("int", 10);
+    SharedPreferences.instance().setValue("bool", true);
+    SharedPreferences.instance().setValue("double", 1.01);
+
+    String val1 = await SharedPreferences.instance().getValue("string");
+    Double val2 = await SharedPreferences.instance().getValue("double");
+    bool val3 = await SharedPreferences.instance().getValue("bool");
+    int val4 = await SharedPreferences.instance().getValue("int");
 
     if (!mounted) return;
 
     setState(() {
-      value = val;
+      value = val1;
     });
   }
 
