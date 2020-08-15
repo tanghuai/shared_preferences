@@ -1,7 +1,13 @@
 name: shared_preferences
 description: SharedPreference Library that can read and write data on Android SharedPreferences files. We can use xml file names to choose share file on Android.
 version: 0.0.4
+department: 京东物流-技术发展部-快递技术部-移动研发组
+#字段标识插件上传地址，如果有该字段并且值为:http://pub.jd.com 时则上传京东私服，否则上传Google  pub 仓库（必须）。
+publish_to:
+author: tanghuai6
+email: tanghuai6@jd.com
 homepage: https://github.com/tanghuai/shared_preferences.git
+git: https://github.com/tanghuai/shared_preferences.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
