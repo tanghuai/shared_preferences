@@ -1,7 +1,6 @@
 name: shared_preferences
 description: Shared library that can read and write data on Android SharedPres files with SharedName.
 version: 0.0.1
-author:
 homepage: https://github.com/tanghuai/shared_preferences.git
 
 environment:

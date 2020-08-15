@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
 
-    SharedPreferences.instance().setValue("key", "testKey");
+    SharedPreferences.instance(sharedName: "newName").setValue("key", "testKey");
     String val = await SharedPreferences.instance().getValue("key");
 
     if (!mounted) return;
