@@ -34,19 +34,23 @@ class SharedPreferencesMethodCallHandler(private var context: Context) : MethodC
                         result.success(value)
                     }
                     "int" -> {
-                        if (defValue == null) {
-                            defValue = 0;
-                        }
-                        val value = try {
-                            sharedPreferences.getInt(key, defValue as Int)
+                        try {
+                            if (defValue == null) {
+                                defValue = 0;
+                            }
+                            val value = sharedPreferences.getInt(key, defValue as Int)
+                            result.success(value)
                         } catch (e: Exception) {
-                            sharedPreferences.getLong(key, defValue as Long)
+                            if (defValue == null) {
+                                defValue = 0l;
+                            }
+                            val value = sharedPreferences.getLong(key, defValue as Long)
+                            result.success(value)
                         }
-                        result.success(value)
                     }
                     "double" -> {
                         if (defValue == null) {
-                            defValue = false;
+                            defValue = 0f;
                         }
                         val value = sharedPreferences.getFloat(key, defValue as Float)
                         result.success(value)
